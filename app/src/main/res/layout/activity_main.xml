@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/main_tool_bar"
+        style="@style/Widget.AppCompat.Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/color_surface"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/color_on_background"/>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/main_fragment_container"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/color_background"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_tool_bar"
+        app:navGraph="@navigation/main_nav_graph" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

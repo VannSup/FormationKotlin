@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- region Header -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/user_details_header_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/user_details_image_view"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/MainTitleTextViewStyle"
+                android:id="@+id/user_details_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_details_image_view"
+                tools:text="@tools:sample/full_names" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/SecondaryTextViewStyle"
+                android:id="@+id/user_details_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_details_login"
+                tools:text="@tools:sample/cities" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- endregion -->
+
+        <!-- region Body -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/user_details_body_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_surface"
+            app:layout_constraintTop_toBottomOf="@id/user_details_header_layout">
+
+            <!-- region Name -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/SecondaryTextViewStyle"
+                android:id="@+id/user_details_name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/name_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/MainTextViewStyle"
+                android:id="@+id/user_details_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_details_name_label"
+                tools:text="@tools:sample/full_names" />
+
+            <View
+                android:id="@+id/user_details_name_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/color_background"
+                app:layout_constraintTop_toBottomOf="@id/user_details_name" />
+            <!-- endregion -->
+
+            <!-- region Location -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/SecondaryTextViewStyle"
+                android:id="@+id/user_details_location_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/location_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_details_name_view" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/MainTextViewStyle"
+                android:id="@+id/user_details_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_details_location_label"
+                tools:text="@tools:sample/cities" />
+
+            <View
+                android:id="@+id/user_details_location_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/color_background"
+                app:layout_constraintTop_toBottomOf="@id/user_details_location" />
+            <!-- endregion -->
+
+            <!-- region Created date-->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/SecondaryTextViewStyle"
+                android:id="@+id/user_details_created_date_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/creation_date_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_details_location_view" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/MainTextViewStyle"
+                android:id="@+id/user_details_created_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_details_created_date_label"
+                tools:text="@tools:sample/date/ddmmyy" />
+
+            <View
+                android:id="@+id/user_details_created_date_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/color_background"
+                app:layout_constraintTop_toBottomOf="@id/user_details_created_date" />
+            <!-- endregion -->
+
+            <!-- region Public repos -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/SecondaryTextViewStyle"
+                android:id="@+id/user_details_public_repos_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/public_repos_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_details_created_date_view" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/MainTextViewStyle"
+                android:id="@+id/user_details_public_repos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_details_public_repos_label"
+                tools:text="@tools:sample/lorem" />
+
+            <View
+                android:id="@+id/user_details_public_repos_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/color_background"
+                app:layout_constraintTop_toBottomOf="@id/user_details_public_repos" />
+            <!-- endregion -->
+
+            <!-- region Followers -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/SecondaryTextViewStyle"
+                android:id="@+id/user_details_followers_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/followers_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_details_public_repos_view" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/MainTextViewStyle"
+                android:id="@+id/user_details_followers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_details_followers_label"
+                tools:text="@tools:sample/lorem" />
+
+            <View
+                android:id="@+id/user_details_followers_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/color_background"
+                app:layout_constraintTop_toBottomOf="@id/user_details_followers" />
+            <!-- endregion -->
+
+            <!-- region Url -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/SecondaryTextViewStyle"
+                android:id="@+id/user_details_html_url_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/html_url_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_details_followers_view" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/MainTextViewStyle"
+                android:id="@+id/user_details_html_url"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_details_html_url_label"
+                tools:text="https://github.com/Login" />
+
+            <View
+                android:id="@+id/user_details_html_url_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/color_background"
+                app:layout_constraintTop_toBottomOf="@id/user_details_html_url" />
+            <!-- endregion -->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- endregion -->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

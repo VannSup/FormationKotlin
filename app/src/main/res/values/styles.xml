@@ -1,0 +1,28 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/color_surface</item>
+    </style>
+
+    <style name="MainTitleTextViewStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/color_on_background</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MainTextViewStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/color_on_background</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SecondaryTextViewStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/color_on_surface</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="SearchViewStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="editTextColor">@color/color_on_surface</item>
+    </style>
+
+</resources>

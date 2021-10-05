@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">API_GIT</string>
+    <string name="user_id_holder_text">ID : %d</string>
+    <string name="search_hint">Search Here !</string>
+
+
+    <string name="name_label">Nom</string>
+    <string name="location_label">Localisation</string>
+    <string name="creation_date_label">Date de création</string>
+    <string name="public_repos_label">Nombre de repos public</string>
+    <string name="followers_label">Nombre de followers</string>
+    <string name="html_url_label">Page git</string>
+    <string name="search_place_holder">Search</string>
+
+    <plurals name="public_repos_number">
+        <item quantity="one">%d repo</item>
+        <item quantity="other">%d repos</item>
+    </plurals>
+
+    <plurals name="followers_number">
+        <item quantity="one">%d follower</item>
+        <item quantity="other">%d followers</item>
+    </plurals>
+</resources>
