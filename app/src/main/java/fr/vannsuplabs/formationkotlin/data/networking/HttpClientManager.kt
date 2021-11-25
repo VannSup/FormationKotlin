@@ -49,9 +49,7 @@ interface HttpClientManager {
          * Singleton for the interface
          */
         val instance: HttpClientManager = HttpClientManagerImpl
-
     }
-
 }
 
 inline fun <reified T> HttpClientManager.createApi(): T {
