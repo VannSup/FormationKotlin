@@ -11,25 +11,24 @@ class UserViewModel private constructor(
     private val repository: UserRepository
 ): ViewModel(){
 
-    private val accessToken = "HERE" // Feed your Token Git Hub here
     private val itemCount = MutableLiveData<Int>()
 
     /**
      *  Return the paginated list of User from the git API
      */
-    val usersPagedList = repository.getPaginatedList(viewModelScope, accessToken)
+    val usersPagedList = repository.getPaginatedList(viewModelScope)
 
     fun getUserByLogin(login: String, onSuccess: OnSuccess<User>) {
         viewModelScope.launch {
-            repository.getUserDetails(login,accessToken)?.run(onSuccess)
+            repository.getUserDetails(login)?.run(onSuccess)
         }
     }
 
     fun getUserSearch(searchQuery: String): LiveData<PagedList<User>> {
         viewModelScope.launch {
-            itemCount.postValue(repository.getItemCount(accessToken, searchQuery))
+            itemCount.postValue(repository.getItemCount(searchQuery))
         }
-        return repository.getSearchPaginatedList(viewModelScope, searchQuery, accessToken)
+        return repository.getSearchPaginatedList(viewModelScope, searchQuery)
     }
 
     companion object Factory : ViewModelProvider.Factory {

@@ -24,19 +24,18 @@ private class UserRepositoryImpl(
         .build()
 
     override fun getPaginatedList(
-        scope: CoroutineScope,
-        accessToken: String
+        scope: CoroutineScope
     ): LiveData<PagedList<User>> {
         return LivePagedListBuilder(
-            UserDataSource.Factory(api, scope, accessToken),
+            UserDataSource.Factory(api, scope),
             paginationConfig
         ).build()
     }
 
-    override suspend fun getUserDetails(id: String, accessToken: String): User? {
+    override suspend fun getUserDetails(id: String): User? {
         return withContext(Dispatchers.IO) {
             try {
-                val response = api.getUserDetails(accessToken, id)
+                val response = api.getUserDetails(id)
                 check(response.isSuccessful) { "Response is not a success : code = ${response.code()}" }
                 response.body() ?: throw IllegalStateException("Body is null")
             } catch (e: Exception) {
@@ -49,18 +48,17 @@ private class UserRepositoryImpl(
     override fun getSearchPaginatedList(
         scope: CoroutineScope,
         searchQuery: String,
-        accessToken: String
     ): LiveData<PagedList<User>> {
         return LivePagedListBuilder(
-            SearchUserDataSource.Factory(api, scope, searchQuery, accessToken),
+            SearchUserDataSource.Factory(api, scope, searchQuery),
             paginationConfig
         ).build()
     }
 
-    override suspend fun getItemCount(accessToken: String, query: String): Int {
+    override suspend fun getItemCount(query: String): Int {
         return withContext(Dispatchers.IO) {
             try {
-                val response = api.getItemsCount(accessToken, query, 1, 20)
+                val response = api.getItemsCount(query, 1, 20)
                 check(response.isSuccessful) { "Response is not a success : code = ${response.code()}" }
                 response.body()?.total_count ?: throw IllegalStateException("Body is null")
 
@@ -74,13 +72,13 @@ private class UserRepositoryImpl(
 
 interface UserRepository {
 
-    fun getPaginatedList(scope: CoroutineScope, accessToken: String): LiveData<PagedList<User>>
+    fun getPaginatedList(scope: CoroutineScope): LiveData<PagedList<User>>
 
-    suspend fun getUserDetails(id: String, accessToken: String): User?
+    suspend fun getUserDetails(id: String): User?
 
-    fun getSearchPaginatedList(scope: CoroutineScope, searchQuery: String, accessToken: String): LiveData<PagedList<User>>
+    fun getSearchPaginatedList(scope: CoroutineScope, searchQuery: String): LiveData<PagedList<User>>
 
-    suspend fun getItemCount(accessToken: String, query: String): Int
+    suspend fun getItemCount( query: String): Int
 
     companion object {
         /**
