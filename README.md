@@ -14,10 +14,10 @@ Pour réalisé cette application nous vous proposont de suivre se plans :
 
 #### Data
 
-1. Consommer l'API GitHub avec postman pour voir les formats des données. **(Débutant)**
-2. Lancer un projet sur android studio en Kotlin. **(Débutant)**
-3. Crée les Data class a partir des objets JSON observer dans postman. **(Débutant)**
-4. Importer les library utilisers pour consommé les APIs (Retrofit2 OkkHTTP3). **(Débutant)**
+1. Consommer l'API GitHub avec Postman pour voir les formats des données. **(Débutant)**
+2. Lancer un projet sur Android studio en Kotlin. **(Débutant)**
+3. Crée les Data class a partir des objets JSON observer dans Postman. **(Débutant)**
+4. Importer les Library utilisers pour consommé les APIs (Retrofit2 OkkHTTP3). **(Débutant)**
 5. Crée le HTTP client manager a l'aide du design pattern Singleton. **(Intermediaire)**
 6. Crée l'interface des API a consommée. **(Débutant)**
 7. Crée le Repos. **(Intermediaire)**
