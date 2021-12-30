@@ -12,8 +12,7 @@ import kotlinx.coroutines.launch
 class SearchUserDataSource private constructor(
     private val api: UserApi,
     private val scope: CoroutineScope,
-    private val searchQuery: String,
-    private val accessToken: String
+    private val searchQuery: String
 ) : PageKeyedDataSource<Int, User>() {
 
     private var pageCount = FIRST_KEY
@@ -26,7 +25,6 @@ class SearchUserDataSource private constructor(
             try {
                 val response = api.searchUsers(
                     page = FIRST_KEY,
-                    accessToken = accessToken,
                     perPage = USER_PER_PAGE,
                     query = searchQuery
                 ).run {
@@ -58,7 +56,6 @@ class SearchUserDataSource private constructor(
             try {
                 val response = api.searchUsers(
                     page = params.key,
-                    accessToken = accessToken,
                     perPage = USER_PER_PAGE,
                     query = searchQuery
                 ).run {
@@ -85,10 +82,9 @@ class SearchUserDataSource private constructor(
     class Factory(
         private val api: UserApi,
         private val scope: CoroutineScope,
-        private val searchQuery: String,
-        private val accessToken: String
+        private val searchQuery: String
     ) : DataSource.Factory<Int, User>() {
-        override fun create(): DataSource<Int, User> = SearchUserDataSource(api, scope, searchQuery, accessToken)
+        override fun create(): DataSource<Int, User> = SearchUserDataSource(api, scope, searchQuery)
     }
 
     companion object {

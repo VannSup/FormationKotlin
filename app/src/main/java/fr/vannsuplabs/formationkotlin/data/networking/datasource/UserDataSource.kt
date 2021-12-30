@@ -15,7 +15,6 @@ import kotlinx.coroutines.launch
 class UserDataSource private constructor(
     private val api: UserApi,
     private val scope: CoroutineScope,
-    private val accessToken: String
 ) : PageKeyedDataSource<Int, User>() {
 
     override fun loadInitial(
@@ -26,7 +25,6 @@ class UserDataSource private constructor(
             try {
                 val response = api.getAllUsers(
                     since = FIRST_KEY,
-                    accessToken = accessToken,
                     perPage = USER_PER_PAGE
                 ).run {
                     if (this.isSuccessful) this.body()
@@ -56,7 +54,6 @@ class UserDataSource private constructor(
             try {
                 val response = api.getAllUsers(
                     since = params.key,
-                    accessToken = accessToken,
                     perPage = USER_PER_PAGE
                 ).run {
                     if (this.isSuccessful) this.body()
@@ -79,12 +76,10 @@ class UserDataSource private constructor(
     class Factory(
         private val api: UserApi,
         private val scope: CoroutineScope,
-        private val accessToken: String
     ) : DataSource.Factory<Int, User>() {
         override fun create(): DataSource<Int, User> = UserDataSource(
             api,
             scope,
-            accessToken
         )
     }
 
