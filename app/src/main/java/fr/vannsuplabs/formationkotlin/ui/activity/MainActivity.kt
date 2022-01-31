@@ -24,5 +24,6 @@ class MainActivity : AppCompatActivity() {
      */
     private fun initToolBar() {
         setSupportActionBar(main_tool_bar)
+
     }
 }

@@ -54,7 +54,7 @@ class UserListFragment : Fragment(), OnUserClickListener {
         view.user_list_recycler_view.apply {
             adapter = userAdapter
         }
-        userViewModel.usersPagedList.observe(this) {
+        userViewModel.usersPagedList.observe(viewLifecycleOwner) {
             userAdapter.submitList(it)
         }
     }
@@ -67,11 +67,11 @@ class UserListFragment : Fragment(), OnUserClickListener {
         this.searchView = searchView
 
         val searchIcon = searchView.findViewById(androidx.appcompat.R.id.search_button) as ImageView
-        searchIcon.setImageDrawable(ContextCompat.getDrawable(activity!!, R.drawable.ic_search))
+        searchIcon.setImageDrawable(ContextCompat.getDrawable(requireActivity(), R.drawable.ic_search))
 
         val searchAutoComplete = searchView.findViewById(androidx.appcompat.R.id.search_src_text) as SearchView.SearchAutoComplete
-        searchAutoComplete.setHintTextColor(ContextCompat.getColor(activity!!,R.color.color_on_surface))
-        searchAutoComplete.setTextColor(ContextCompat.getColor(activity!!,R.color.color_on_surface))
+        searchAutoComplete.setHintTextColor(ContextCompat.getColor(requireActivity(),R.color.color_on_surface))
+        searchAutoComplete.setTextColor(ContextCompat.getColor(requireActivity(),R.color.color_on_surface))
 
         searchView.queryHint = "enter your search here"
 
